@@ -30,8 +30,8 @@ public:
 
     template <typename... Args>
     void info(std::format_string<Args...> format, Args&&... args) const {
-        std::string message = std::format(format, std::forward<Args>(args)...);
-        LOG_I(tag, "%s", message.c_str());
+        const char* message = std::format(format, std::forward<Args>(args)...).c_str();
+        LOG_I(tag, "%s", message);
     }
 
     template <typename... Args>
